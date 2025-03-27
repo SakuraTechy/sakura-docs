@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "vitepress build",
     "serve": "vitepress serve",
+    "build": "node build-wrap.cjs",
     "preinstall": "npx only-allow pnpm",
     "docs": "vitepress dev",
     "docs:api": "node run-typedoc.mjs",
