@@ -20,7 +20,7 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
 
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/SakuraTechy/Sakura.Automation.Platform.Docs/edit/dev/:path',
+      pattern: 'https://github.com/SakuraTechy/sakura-docs/edit/dev/:path',
       text: '对本页提出修改建议',
     },
 

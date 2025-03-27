@@ -18,7 +18,7 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
 
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/vuejs/pinia/edit/v2/packages/docs/:path',
+      pattern: 'https://github.com/SakuraTechy/sakura-docs/edit/dev/:path',
       text: 'Suggest changes to this page',
     },
 
