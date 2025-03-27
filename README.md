@@ -1,7 +1,9 @@
-# sakura-docs
+# Sakura.Automation.Platform.Docs
 
 #### 介绍
-🔥Sakura Docs🔥是自动化平台官方文档，采用 VitePress 技术构建，专注于打造快速、现代化且以内容为核心的文档站点，兼具高效开发体验与优雅展示效果。全面介绍了自动化平台的基础功能、核心功能及产品优势，涵盖系统管理、项目管理，测试管理，接口管理，自动化管理等模块，突出其在提升研发效率与优化用户体验方面的卓越能力，展现了一站式持续自动化平台的强大实力与专业价值。
+{**以下是 Gitee 平台说明，您可以替换此简介**
+Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
+无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
 
 #### 软件架构
 软件架构说明
@@ -9,13 +11,13 @@
 
 #### 安装教程
 
-1.  xxxx
+1.  pnpm install
 2.  xxxx
 3.  xxxx
 
 #### 使用说明
 
-1.  xxxx
+1.  pnpm dev
 2.  xxxx
 3.  xxxx
 
