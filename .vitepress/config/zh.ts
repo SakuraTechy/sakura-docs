@@ -166,6 +166,7 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
           items: [
             { text: '常见问题', link: '/src/zh/3.其它/1.常见问题/index.html' },
             { text: '问卷调查', link: '/src/zh/3.其它/2.问卷调查/index.html' },
+            { text: '赞助支持', link: '/src/zh/3.其它/3.赞助支持/index.html' },
           ],
           collapsed: false,
         },

@@ -164,6 +164,7 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
           items: [
             { text: '常见问题', link: '/3.其它/1.常见问题/index.html' },
             { text: '问卷调查', link: '/3.其它/2.问卷调查/index.html' },
+            { text: '赞助支持', link: '/3.其它/3.赞助支持/index.html' },
           ],
           collapsed: false,
         },
