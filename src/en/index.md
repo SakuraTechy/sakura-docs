@@ -38,20 +38,60 @@ features:
 ---
 
 <script setup>
-import HomeSponsors from '../../.vitepress/theme/components/HomeSponsors.vue'
+import { onMounted } from 'vue'
+import VideoGlass from '/.vitepress/theme/components/Video/VideoGlass.vue'
+import CustomVideo from '/.vitepress/theme/components/video/CustomVideo.vue'
+
+onMounted(() => {
+  // 获取hero和features容器
+  const heroSection = document.querySelector('.VPHero')
+  const featuresSection = document.querySelector('.VPFeatures')
+  const videoContainer = document.querySelector('.video-container')
+  
+  if (heroSection && featuresSection && videoContainer) {
+    // 将视频容器移动到hero和features之间
+    heroSection.parentNode.insertBefore(videoContainer, featuresSection)
+  }
+})
 </script>
 
-<!-- <HomeSponsors /> -->
+<div class="video-container" style="display:none;">
+  <div class="video-wrapper">
+    <VideoGlass 
+      src="/video/sakura.mp4"
+      poster="/video/sakura.png"
+      title="科技成就未来"
+      subtitle="自动化将使工作更简单高效"
+      width="100%"
+      height="auto"
+      maxWidth="1200px"
+      :autoplay="false"
+    />
+  </div>
+</div>
 
 <style>
-.VPImage.logo{
-  width: 40px;
-  height: 40px;
-  margin-right: 0px;
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #f16d9c 0%, #5D67E8);
+
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
+  --vp-home-hero-image-filter: blur(44px);
+
+  --vp-button-alt-bg: var(--vp-c-default-4);
+  --vp-button-brand-active-border: #453fa4;
+  --c-yellow-1: #453fa4;
+  --c-yellow-2: #6f68e0;
+  --c-black-darker: #f8f8f8;
 }
+
+.VPHero {
+  padding: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 80px) 64px 40px !important;
+}
+
 .VPContent.is-home{
   padding-top: 40px;
-  /* background: url("/bg.svg") center center / cover no-repeat; */
   .VPHome {
     margin-bottom: 30px;
   }
@@ -62,7 +102,6 @@ import HomeSponsors from '../../.vitepress/theme/components/HomeSponsors.vue'
       margin: 30px 0;
       .clip {
         background: linear-gradient(120deg, #f16d9c 0%, #5D67E8);
-        /* background: var(--vp-home-hero-name-background); */
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -78,6 +117,22 @@ import HomeSponsors from '../../.vitepress/theme/components/HomeSponsors.vue'
     }
   }
 }
+
+.video-container {
+  display: block !important;
+}
+
+.video-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.VPFeatures {
+  position: relative;
+  z-index: 10;
+}
+
 .VPButton.brand {
     border-color: #e5e7eb !important;
     color: #ffffff !important;
@@ -99,29 +154,15 @@ import HomeSponsors from '../../.vitepress/theme/components/HomeSponsors.vue'
     padding: 12px !important;
 }
 
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #f16d9c 0%, #5D67E8);
-
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
-  --vp-home-hero-image-filter: blur(44px);
-
-  --vp-button-alt-bg: var(--vp-c-default-4);
-  --vp-button-brand-active-border: #453fa4;
-  --c-yellow-1: #453fa4;
-  --c-yellow-2: #6f68e0;
-  --c-black-darker: #f8f8f8;
-}
-
 @media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
+  .video-wrapper {
+    padding: 0 48px 40px;
   }
 }
 
 @media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
+  .video-wrapper {
+    padding: 0 64px 40px;
   }
 }
 </style>

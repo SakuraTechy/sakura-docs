@@ -146,8 +146,8 @@ export const sharedConfig = defineConfig({
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-2024 SakuraTech',
+      message: 'Released under the Apache-2.0 License.',
+      copyright: 'Copyright © 2019-2025 SakuraTechy',
       // copyright: 'Copyright © 2019-present Eduardo San Martin Morote',
       // copyright: 'Copyright © 2013-2024 微擎 皖ICP备19002904号-6',
       // copyright: '©2021 深圳昂楷科技有限公司 版权所有 | 粤ICP备09174373号',
