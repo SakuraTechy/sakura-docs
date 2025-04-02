@@ -40,7 +40,7 @@ import { onMounted, onBeforeUnmount, ref, h, createApp, defineAsyncComponent } f
 
 // 动态导入 VideoGlass 组件
 const VideoGlass = defineAsyncComponent(() =>
-  import('/.vitepress/theme/components/Video/VideoGlass.vue')
+  import('/public/icon/VideoGlass.vue')
 )
 
 // 使用ref跟踪视频是否已添加
@@ -61,7 +61,7 @@ const cleanupAllVideos = () => {
     videoContainers.forEach(container => {
       container.remove()
     })
-    
+
     // 查找所有视频挂载点
     const videoMounts = document.querySelectorAll('[id^="video-mount-"]')
     videoMounts.forEach(mount => {
@@ -69,10 +69,10 @@ const cleanupAllVideos = () => {
         mount.parentNode.remove()
       }
     })
-    
+
     // 重置标记
     videoAdded.value = false
-    
+
     // 清除全局标记
     if (window.__sakuraVideoAdded) {
       window.__sakuraVideoAdded = false
@@ -102,41 +102,35 @@ const addVideo = () => {
   
   if (heroSection && featuresSection) {
     console.log('找到hero和features部分')
-    
     // 先清理所有现有的视频容器
     cleanupAllVideos()
-    
     // 创建视频容器
     const videoContainer = document.createElement('div')
     videoContainer.className = 'video-container'
     videoContainer.setAttribute('data-lang', 'zh')
     videoContainer.style.cssText = showVideo.value ? 'display: block !important;' : 'display: none !important;'
     console.log('视频容器显示设置为:', videoContainer.style.display)
-    
     // 创建视频挂载点
     videoContainer.innerHTML = `
       <div class="video-wrapper">
         <div id="video-mount-zh"></div>
       </div>
     `
-    
     // 插入到hero和features之间
     heroSection.parentNode.insertBefore(videoContainer, featuresSection)
     console.log('视频容器已插入DOM')
-    
     // 确保挂载点存在
     const mountPoint = document.getElementById('video-mount-zh')
     if (!mountPoint) {
       console.error('挂载点未找到')
       return false
     }
-    
     try {
       // 使用Vue的动态组件挂载VideoGlass
       const videoApp = createApp({
         render() {
           return h(VideoGlass, {
-            src: "https://cdn3.easylink.cc/mp4_avthumb_4c21a5f3-8046-436b-8bd7-6e41762ed01f_%E5%AE%A3%E4%BC%A0%E8%A7%86%E9%A2%912.mp4?e=1743588818&token=J_WyMIdhZtwb0E0QHWRqEfQrd5lVSWLffl9QxaxP:TuD2dvBigvAAni_JuzXNt53Xe_s=",
+            src: "https://thumbs-eu-west-1.myalbum.io/video/1k0_h264/b482d471-701c-427f-acfa-86cc30b9d728.mp4",
             poster: "/video/sakura.png",
             title: "Technology achieve the future",
             subtitle: "Automation make work simpler and more efficient",
@@ -148,12 +142,10 @@ const addVideo = () => {
           })
         }
       })
-      
       videoApp.mount('#video-mount-zh')
       console.log('VideoGlass组件挂载成功')
     } catch (error) {
       console.error('挂载VideoGlass组件时出错:', error)
-      
       // 如果挂载失败，使用原生视频元素作为备选方案
       mountPoint.innerHTML = `
         <video 
@@ -166,18 +158,24 @@ const addVideo = () => {
           <source src="/video/sakura.mp4" type="video/mp4">
           您的浏览器不支持视频标签。
         </video>
+        <iframe
+          src="//player.bilibili.com/player.html?isOutside=true&aid=113310699619245&bvid=BV1Tr2RY4EQd&cid=26300646241&p=1"
+          scrolling="no"
+          border="0"
+          frameborder="no"
+          width="100%"
+          allowfullscreen="true"
+          height="400px"
+        >
       `
       console.log('已添加备选视频元素')
     }
-    
     // 设置全局标记
     if (typeof window !== 'undefined') {
       window.__sakuraVideoAdded = true
     }
-    
     // 设置本地标记
     videoAdded.value = true
-    
     // 确保视频容器显示
     if (showVideo.value) {
       setTimeout(() => {
@@ -188,7 +186,6 @@ const addVideo = () => {
         }
       }, 500)
     }
-    
     return true
   }
   
@@ -269,7 +266,7 @@ const addCustomButton = () => {
         button.remove()
         console.log('Removed existing custom button')
       })
-      
+
       // Create custom button
       const customButton = document.createElement('button')
       customButton.className = 'pinia-style-btn ripple-btn'
@@ -282,7 +279,7 @@ const addCustomButton = () => {
         toggleVideoDisplay()
         return false
       }
-      
+
       // Add to button container
       buttonContainer.appendChild(customButton)
       console.log('Added English custom button')
@@ -308,7 +305,7 @@ onMounted(() => {
   if (typeof window !== 'undefined' && window.history) {
     // 保存原始方法
     const originalPushState = window.history.pushState
-    
+
     // 重写pushState方法
     window.history.pushState = function() {
       const result = originalPushState.apply(this, arguments)
@@ -320,7 +317,7 @@ onMounted(() => {
       }, 300)
       return result
     }
-    
+
     // 添加全局调试函数
     window.toggleSakuraVideo = toggleVideoDisplay
     console.log('已添加全局调试函数: toggleSakuraVideo()')
@@ -334,6 +331,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
+  
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #f16d9c 0%, #5D67E8);
