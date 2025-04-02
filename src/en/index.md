@@ -38,9 +38,14 @@ features:
 ---
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, onBeforeUnmount, ref, h, createApp, defineAsyncComponent } from 'vue'
 // import VideoGlass from '/.vitepress/theme/components/Video/VideoGlass.vue'
 // import CustomVideo from '/.vitepress/theme/components/video/CustomVideo.vue'
+
+// 动态导入 VideoGlass 组件
+const VideoGlass = defineAsyncComponent(() =>
+  import('/.vitepress/theme/components/Video/VideoGlass.vue')
+)
 
 onMounted(() => {
   // 获取hero和features容器
@@ -57,8 +62,8 @@ onMounted(() => {
 
 <div class="video-container" style="display:none;">
   <div class="video-wrapper">
-    <VideoGlass 
-      src="/video/sakura.mp4"
+    <VideoGlass
+      src="https://cdn3.easylink.cc/mp4_avthumb_bb20d47e-74d7-4a31-a187-467ed550f739_%E5%AE%A3%E4%BC%A0%E8%A7%86%E9%A2%911.mp4?e=1743586629&token=J_WyMIdhZtwb0E0QHWRqEfQrd5lVSWLffl9QxaxP:iN3pwipS5q3_-EyBTu6qXW9NLj0=",
       poster="/video/sakura.png"
       title="科技成就未来"
       subtitle="自动化将使工作更简单高效"

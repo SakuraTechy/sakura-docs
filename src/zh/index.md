@@ -52,8 +52,13 @@ features:
 ---
 
 <script setup>
-import { onMounted, onBeforeUnmount, ref, h, createApp } from 'vue'
+import { onMounted, onBeforeUnmount, ref, h, createApp, defineAsyncComponent } from 'vue'
 //import VideoGlass from '/.vitepress/theme/components/Video/VideoGlass.vue'
+
+// 动态导入 VideoGlass 组件
+const VideoGlass = defineAsyncComponent(() =>
+  import('/.vitepress/theme/components/Video/VideoGlass.vue')
+)
 
 // 使用ref跟踪视频是否已添加
 const videoAdded = ref(false)
@@ -148,7 +153,8 @@ const addVideo = () => {
       const videoApp = createApp({
         render() {
           return h(VideoGlass, {
-            src: "/video/sakura.mp4",
+            // src: "/video/sakura.mp4",
+            src: "https://thumbs-eu-west-1.myalbum.io/video/1k0_h264/9072f371-94e1-4923-8a83-c91f6878f969.mp4",
             poster: "/video/sakura.png",
             title: "科技成就未来",
             subtitle: "自动化使工作更简单高效",

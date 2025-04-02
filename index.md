@@ -35,8 +35,13 @@ features:
 ---
 
 <script setup>
-import { onMounted, onBeforeUnmount, ref, h, createApp } from 'vue'
+import { onMounted, onBeforeUnmount, ref, h, createApp, defineAsyncComponent } from 'vue'
 // import VideoGlass from './.vitepress/theme/components/Video/VideoGlass.vue'
+
+// 动态导入 VideoGlass 组件
+const VideoGlass = defineAsyncComponent(() =>
+  import('/.vitepress/theme/components/Video/VideoGlass.vue')
+)
 
 // 使用ref跟踪视频是否已添加
 const videoAdded = ref(false)
@@ -131,7 +136,7 @@ const addVideo = () => {
       const videoApp = createApp({
         render() {
           return h(VideoGlass, {
-            src: "/video/sakura.mp4",
+            src: "https://cdn3.easylink.cc/mp4_avthumb_4c21a5f3-8046-436b-8bd7-6e41762ed01f_%E5%AE%A3%E4%BC%A0%E8%A7%86%E9%A2%912.mp4?e=1743588818&token=J_WyMIdhZtwb0E0QHWRqEfQrd5lVSWLffl9QxaxP:TuD2dvBigvAAni_JuzXNt53Xe_s=",
             poster: "/video/sakura.png",
             title: "Technology achieve the future",
             subtitle: "Automation make work simpler and more efficient",
