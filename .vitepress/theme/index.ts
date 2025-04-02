@@ -15,6 +15,7 @@ import HomePreview from './components/HomePreview.vue'
 import mediumZoom from 'medium-zoom'
 import { useRoute } from 'vitepress'
 import MyLayout from './MyLayout.vue';
+import VideoGlass from './components/Video/VideoGlass.vue'
 
 const i18nLabels = {
   zh: '该翻译已同步到了 ${date} 的版本，其对应的 commit hash 是 <code>${hash}</code>。',
@@ -46,6 +47,8 @@ const theme: Theme = {
   },
   enhanceApp({ app }) {
     app.component('ZoomImg', ZoomImg)
+    app.component('VideoGlass', VideoGlass) // 全局注册组件
+    
     // app.component('VueSchoolLink', VueSchoolLink)
     // app.component('VueMasteryLogoLink', VueMasteryLogoLink)
   },

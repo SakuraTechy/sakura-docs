@@ -39,8 +39,8 @@ features:
 
 <script setup>
 import { onMounted } from 'vue'
-import VideoGlass from '/.vitepress/theme/components/Video/VideoGlass.vue'
-import CustomVideo from '/.vitepress/theme/components/video/CustomVideo.vue'
+// import VideoGlass from '/.vitepress/theme/components/Video/VideoGlass.vue'
+// import CustomVideo from '/.vitepress/theme/components/video/CustomVideo.vue'
 
 onMounted(() => {
   // 获取hero和features容器

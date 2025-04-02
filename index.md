@@ -36,7 +36,7 @@ features:
 
 <script setup>
 import { onMounted, onBeforeUnmount, ref, h, createApp } from 'vue'
-import VideoGlass from '/.vitepress/theme/components/Video/VideoGlass.vue'
+// import VideoGlass from './.vitepress/theme/components/Video/VideoGlass.vue'
 
 // 使用ref跟踪视频是否已添加
 const videoAdded = ref(false)
