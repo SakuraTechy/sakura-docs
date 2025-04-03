@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'PingFang SC';
+  src: url('./PingFang/PingFang SC.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PingFang SC1';
+  src: url('./PingFang/苹方黑体-中黑-简.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 添加全局字体应用 */
+:root {
+  --vp-font-family-base: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --vp-font-family-mono: 'PingFang SC', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* 确保字体应用到所有元素 */
+body {
+  /* font-family: var(--vp-font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+/* 确保代码块使用等宽字体 */
+pre, code {
+  font-family: var(--vp-font-family-mono);
+}

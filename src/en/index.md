@@ -59,7 +59,7 @@ onMounted(() => {
 <div class="video-container" style="display:none;">
   <div class="video-wrapper">
     <VideoGlass
-      src="https://thumbs-eu-west-1.myalbum.io/video/1k0_h264/b482d471-701c-427f-acfa-86cc30b9d728.mp4",
+      src="https://thumbs-eu-west-1.myalbum.io/video/1k0_h264/98e67050-f5fd-4fd3-bd58-802a37e92a13.mp4",
       poster="/video/sakura.png"
       title="科技成就未来"
       subtitle="自动化将使工作更简单高效"

@@ -130,7 +130,7 @@ const addVideo = () => {
       const videoApp = createApp({
         render() {
           return h(VideoGlass, {
-            src: "https://thumbs-eu-west-1.myalbum.io/video/1k0_h264/b482d471-701c-427f-acfa-86cc30b9d728.mp4",
+            src: "https://thumbs-eu-west-1.myalbum.io/video/1k0_h264/98e67050-f5fd-4fd3-bd58-802a37e92a13.mp4",
             poster: "/video/sakura.png",
             title: "Technology achieve the future",
             subtitle: "Automation make work simpler and more efficient",

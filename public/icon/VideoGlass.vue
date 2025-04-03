@@ -90,7 +90,7 @@
             step="0.1" 
             v-model="volumeLevel" 
             class="volume-slider"
-            @input="changeVolume"
+            @input="adjustVolume"
           />
         </div>
         
@@ -185,15 +185,35 @@ const togglePlay = () => {
 // 静音切换
 const toggleMute = () => {
   isMuted.value = !isMuted.value
+  
   if (videoRef.value) {
     videoRef.value.muted = isMuted.value
+    
+    // 如果取消静音但音量为0，设置一个默认音量
+    if (!isMuted.value && volumeLevel.value === 0) {
+      volumeLevel.value = 0.5
+      videoRef.value.volume = 0.5
+    }
   }
 }
 
 // 更改音量
-const changeVolume = () => {
+const adjustVolume = (event) => {
+  const newVolume = parseFloat(event.target.value)
+  volumeLevel.value = newVolume
+  
   if (videoRef.value) {
-    videoRef.value.volume = volumeLevel.value
+    videoRef.value.volume = newVolume
+    
+    // 当音量为0时，自动设置为静音状态
+    if (newVolume === 0) {
+      isMuted.value = true
+      videoRef.value.muted = true
+    } else if (isMuted.value) {
+      // 如果之前是静音，且现在音量不为0，则取消静音
+      isMuted.value = false
+      videoRef.value.muted = false
+    }
   }
 }
 
@@ -311,6 +331,36 @@ const handleMouseMove = () => {
   }, 3000)
 }
 
+// 添加鼠标进入和离开事件处理
+const handleMouseEnter = () => {
+  if (!isPlaying.value) return
+  
+  // 显示控制条
+  if (containerRef.value) {
+    containerRef.value.classList.add('hover')
+  }
+}
+
+const handleMouseLeave = () => {
+  if (!isPlaying.value) return
+  
+  // 隐藏控制条
+  if (containerRef.value) {
+    containerRef.value.classList.remove('hover')
+    
+    // 如果在全屏模式下，也添加光标隐藏类
+    if (isFullscreen.value) {
+      isCursorHidden.value = true
+      containerRef.value.classList.add('cursor-hidden')
+    }
+  }
+  
+  // 清除定时器
+  if (cursorTimeout.value) {
+    clearTimeout(cursorTimeout.value)
+  }
+}
+
 // 监听视频事件
 onMounted(() => {
   const video = videoRef.value
@@ -357,8 +407,10 @@ onMounted(() => {
     }
   })
   
-  // 添加鼠标移动事件监听
+  // 添加鼠标进入和离开事件监听
   if (containerRef.value) {
+    containerRef.value.addEventListener('mouseenter', handleMouseEnter)
+    containerRef.value.addEventListener('mouseleave', handleMouseLeave)
     containerRef.value.addEventListener('mousemove', handleMouseMove)
   }
 })
@@ -376,8 +428,10 @@ onUnmounted(() => {
   document.removeEventListener('click', () => {})
   document.removeEventListener('fullscreenchange', () => {})
   
-  // 清理鼠标移动事件监听
+  // 清理鼠标事件监听
   if (containerRef.value) {
+    containerRef.value.removeEventListener('mouseenter', handleMouseEnter)
+    containerRef.value.removeEventListener('mouseleave', handleMouseLeave)
     containerRef.value.removeEventListener('mousemove', handleMouseMove)
   }
   
@@ -427,12 +481,27 @@ onUnmounted(() => {
   transition: opacity 0.3s ease;
 }
 
-.video-container.is-playing.is-fullscreen .controls-overlay {
+.video-container.is-playing .controls-overlay {
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.video-container.is-playing.is-fullscreen:hover .controls-overlay {
+.video-container.is-playing:hover .controls-overlay {
   opacity: 1;
+}
+
+.video-container.is-playing.is-fullscreen.cursor-hidden .controls-overlay {
+  opacity: 0;
+  pointer-events: none; /* 防止隐藏时仍能点击 */
+  transition: opacity 0.3s ease;
+}
+
+.video-container.is-playing.is-fullscreen {
+  cursor: default;
+}
+
+.video-container.is-playing.is-fullscreen.cursor-hidden {
+  cursor: none;
 }
 
 .center-controls {
@@ -682,31 +751,5 @@ onUnmounted(() => {
     width: 80px;
     height: 80px;
   }
-}
-
-/* 修改控制条隐藏样式 */
-.video-container.is-playing.is-fullscreen.cursor-hidden .controls-overlay {
-  opacity: 0;
-  pointer-events: none; /* 防止隐藏时仍能点击 */
-  transition: opacity 0.3s ease;
-}
-
-.video-container.is-playing.is-fullscreen .controls-overlay {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-/* 确保鼠标悬停时控制条显示 */
-.video-container.is-playing.is-fullscreen:not(.cursor-hidden):hover .controls-overlay {
-  opacity: 1;
-}
-
-/* 光标样式 */
-.video-container.is-playing.is-fullscreen {
-  cursor: default;
-}
-
-.video-container.is-playing.is-fullscreen.cursor-hidden {
-  cursor: none;
 }
 </style>

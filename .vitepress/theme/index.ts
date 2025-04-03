@@ -16,6 +16,7 @@ import mediumZoom from 'medium-zoom'
 import { useRoute } from 'vitepress'
 import MyLayout from './MyLayout.vue';
 // import VideoGlass from './components/Video/VideoGlass.vue'
+import './styles/fonts/font.css'
 
 const i18nLabels = {
   zh: '该翻译已同步到了 ${date} 的版本，其对应的 commit hash 是 <code>${hash}</code>。',
@@ -50,6 +51,9 @@ const theme: Theme = {
     // app.component('VideoGlass', VideoGlass)
     // app.component('VueSchoolLink', VueSchoolLink)
     // app.component('VueMasteryLogoLink', VueMasteryLogoLink)
+    
+    // 添加调试日志
+    console.log('PingFang SC font applied globally')
   },
 }
 
