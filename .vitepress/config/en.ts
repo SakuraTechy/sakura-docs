@@ -60,6 +60,7 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
       // },
       { text: 'Manual', link: '/2.使用手册/0.流程图/index.html', activeMatch: '^/2.使用手册/0.流程图/index.html' },
       { text: 'Q&A', link: '/3.其它/1.常见问题/index.html', activeMatch: '^/3.其它/1.常见问题/index.html' },
+      { text: 'Sponsor💖', link: '/3.其它/3.赞助支持/index.html', activeMatch: '^/3.其它/3.赞助支持/index.html' },
       { text: 'Experience', link: 'https://www.sakura.hk.cn:28383'},
       // {
       //   text: '相关链接',
@@ -164,7 +165,7 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
           items: [
             { text: '常见问题', link: '/3.其它/1.常见问题/index.html' },
             { text: '问卷调查', link: '/3.其它/2.问卷调查/index.html' },
-            { text: '赞助支持', link: '/3.其它/3.赞助支持/index.html' },
+            { text: '赞助支持 💖', link: '/3.其它/3.赞助支持/index.html' },
           ],
           collapsed: false,
         },

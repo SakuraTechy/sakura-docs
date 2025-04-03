@@ -62,6 +62,7 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
       // },
       { text: '使用手册', link: '/src/zh/2.使用手册/0.流程图/index.html', activeMatch: '^/src/zh/2.使用手册/0.流程图/index.html' },
       { text: '常见问题', link: '/src/zh/3.其它/1.常见问题/index.html', activeMatch: '^/src/zh/3.其它/1.常见问题/index.html' },
+      { text: '赞助支持💖', link: '/src/zh/3.其它/3.赞助支持/index.html', activeMatch: '^/src/zh/3.其它/3.赞助支持/index.html' },
       { text: '在线体验', link: 'https://www.sakura.hk.cn:28383/'},
       // {
       //   text: '相关链接',
@@ -166,7 +167,7 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
           items: [
             { text: '常见问题', link: '/src/zh/3.其它/1.常见问题/index.html' },
             { text: '问卷调查', link: '/src/zh/3.其它/2.问卷调查/index.html' },
-            { text: '赞助支持', link: '/src/zh/3.其它/3.赞助支持/index.html' },
+            { text: '赞助支持 💖', link: '/src/zh/3.其它/3.赞助支持/index.html' },
           ],
           collapsed: false,
         },
