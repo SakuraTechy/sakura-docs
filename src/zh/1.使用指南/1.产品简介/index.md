@@ -292,19 +292,25 @@ Sakura Automation Platform 是一站式持续自动化平台，涵盖 APP 自动
 - 第一时间收到官方 Bug 通知
 - 和众多大佬互相 (huá shuǐ) 交流 (mō yú)
 
-> 扫码加微信，邀请入群
+> 官方微信号（扫码加微信，邀请入群）
 <div st="left">
-  <img src="./wx.png" alt="个人微信" width="230px" />
+  <img src="./wx.png" alt="个人微信" style="width: 230px;border-radius: 10px;" />
 </div>
 
 > 官方 QQ 群
 <div align="left">
-  <img src="./qq.png" alt="QQ群" width="230px" />
+  <img src="./qq.png" alt="QQ群" style="width: 230px;border-radius: 10px;" />
 </div>
 
-<div style="display: flex;margin-top: 5px;gap: 5px;">
+<div style="display: flex;margin-top: 10px;gap: 5px;">
   <a href="https://qm.qq.com/cgi-bin/qm/qr?k=b8he45MJqnEPzDjQUemTT86E0tLwnG1N&jump_from=webapi&authKey=HdZIaQGhK4BjebajkAJ5wwDzZKBnSrXtq6jEM8g/LcR+0kaZcqLQGfKNl1d8Wwip" target="_blank"><img src="https://img.shields.io/badge/已满-126325129-blue.svg" alt="加入QQ群"></a>
   <a href="https://qm.qq.com/cgi-bin/qm/qr?k=b8he45MJqnEPzDjQUemTT86E0tLwnG1N&jump_from=webapi&authKey=HdZIaQGhK4BjebajkAJ5wwDzZKBnSrXtq6jEM8g/LcR+0kaZcqLQGfKNl1d8Wwip" target="_blank"><img src="https://img.shields.io/badge/未满-126325130-blue.svg" alt="加入QQ群"></a>
+</div>
+
+> 官方公众号
+<div st="left">
+  <img src="./sakura.png" alt="微信公众号" style="width: 450px;border-radius: 10px;" />
+  <!-- <img src="./wx_gzh.png" alt="微信公众号" style="width: 230px;border-radius: 10px;" /> -->
 </div>
 
 <!-- [![加入QQ群](https://img.shields.io/badge/已满-104180207-blue.svg)](https://jq.qq.com/?_wv=1027&k=51G72yr) 
@@ -335,7 +341,7 @@ Sakura Automation Platform 是一站式持续自动化平台，涵盖 APP 自动
 
 <a href="https://github.com/SakuraTechy/Sakura.Automation.Platform.Api/graphs/contributors">
   <!-- <img src="https://github.com/SakuraTechy/Sakura.Automation.Platform.Api/contributors.svg?width=890&button=false" alt="contributors" /> -->
-  <img src="https://avatars.githubusercontent.com/u/24785603?s=60&v=4" alt="contributors" />
+  <img src="https://avatars.githubusercontent.com/u/24785603?s=60&v=4" alt="contributors" style="border-radius: 5px;" />
 </a>
 
 <!-- - 感谢 <a href="https://github.com/baomidou/mybatis-plus" target="_blank">MyBatis Plus</a>、<a href="https://github.com/dromara/sa-token" target="_blank">Sa-Token</a> 、<a href="https://github.com/alibaba/jetcache" target="_blank">JetCache</a>、<a href="https://github.com/opengoofy/crane4j" target="_blank">Crane4j</a>、<a href="https://github.com/xiaoymin/knife4j" target="_blank">Knife4j</a>、<a href="https://github.com/dromara/hutool" target="_blank">Hutool</a> 等开源组件作者为国内开源世界作出的贡献
@@ -346,7 +352,7 @@ Sakura Automation Platform 是一站式持续自动化平台，涵盖 APP 自动
 ## License
 
 - 遵循 <a href="https://github.com/SakuraTechy/Sakura.Automation.Platform.Api/blob/dev/LICENSE" target="_blank">Apache-2.0</a> 开源许可协议
-- Copyright © 2024-present <a href="https://sakura.hk.cn" target="_blank">Sakura</a>
+- Copyright © 2025-present <a href="https://sakura.hk.cn" target="_blank">Sakura</a>
 
 ## GitHub Star 趋势
 
